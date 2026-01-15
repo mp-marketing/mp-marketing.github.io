@@ -4,70 +4,391 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mike Paich | Marketing + Automation</title>
-  <meta name="description" content="Marketing leader focused on growth, ROI, and automation. Resume, projects, and contact." />
+  <meta name="description" content="Marketing leader focused on profitable growth, plus hands-on automation and web tooling. Resume, highlights, and contact." />
+  <meta name="color-scheme" content="light" />
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 0; color: #111; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 48px 20px; }
-    h1 { font-size: 40px; margin: 0 0 12px; }
-    p { line-height: 1.6; font-size: 18px; margin: 0 0 18px; }
-    .btns a { display: inline-block; margin-right: 12px; margin-top: 10px; padding: 10px 14px; border: 1px solid #111; border-radius: 10px; text-decoration: none; color: #111; }
-    .btns a:hover { opacity: 0.8; }
-    .section { margin-top: 34px; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-    .card { border: 1px solid #ddd; border-radius: 14px; padding: 16px; }
-    .muted { color: #555; font-size: 16px; }
-    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+    :root{
+      --bg1:#f7f7ff;
+      --bg2:#f3fbff;
+      --card:#ffffffcc;
+      --border:#e6e6f2;
+      --text:#12131a;
+      --muted:#4b5162;
+      --accent1:#6d5efc;
+      --accent2:#11b3ff;
+      --shadow: 0 10px 30px rgba(18,19,26,.10);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(109,94,252,.14), transparent 55%),
+        radial-gradient(1000px 600px at 85% 15%, rgba(17,179,255,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+    }
+
+    a{ color: inherit; text-decoration:none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 44px 18px 60px;
+    }
+
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+    }
+
+    .logo{
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
+      transform: rotate(12deg);
+    }
+
+    h1{
+      font-size: 34px;
+      letter-spacing: -0.5px;
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    .tagline{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+      max-width: 720px;
+    }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.70);
+      box-shadow: 0 8px 18px rgba(18,19,26,.08);
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      transition: transform .15s ease;
+      text-decoration:none;
+    }
+
+    .btn.primary{
+      border: 0;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: white;
+      box-shadow: 0 12px 26px rgba(109,94,252,.18);
+    }
+
+    .pillbar{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 26px;
+    }
+
+    .pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .heroCard{
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .colHeader{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .colHeader h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+
+    .badge{
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.65);
+      color: var(--muted);
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.62);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 8px 22px rgba(18,19,26,.07);
+    }
+
+    .card h3{
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .miniGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .sectionTitle{
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .twoUp{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .footer{
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items:center;
+      justify-content: space-between;
+    }
+
+    .contactLine a{ font-weight: 650; }
+    .quiet{ opacity: .9; }
+
+    @media (min-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr 1fr; }
+      .miniGrid{ grid-template-columns: 1fr; }
+      .twoUp{ grid-template-columns: 1fr 1fr; }
+      h1{ font-size: 40px; }
+      .tagline{ font-size: 17px; }
+    }
+
+    /* small icon circles */
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display:inline-block;
+      margin-right: 8px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      box-shadow: 0 6px 14px rgba(109,94,252,.22);
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <h1>Mike Paich</h1>
-    <p class="muted">Marketing leader focused on profitable growth, plus hands-on automation and web work.</p>
+    <div class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Mike Paich</h1>
+          <p class="tagline">
+            I build profitable growth systems, and I also like getting my hands dirty with automation and lightweight web tooling,
+            so teams move faster and fewer things fall through the cracks.
+          </p>
 
-    <div class="btns">
-      <a href="resume.pdf">Resume (PDF)</a>
-      <a href="https://www.linkedin.com/in/michael-b-paich-a70a8262/">LinkedIn</a>
-      <a href="mailto:mpaich@gmail.com">Email Me</a>
-    </div>
+          <div class="actions">
+            <a class="btn primary" href="resume.pdf">Resume (PDF)</a>
+            <a class="btn" href="https://www.linkedin.com/in/michael-b-paich-a70a8262/">LinkedIn</a>
+            <a class="btn" href="mailto:mpaich@gmail.com">Email</a>
+            <a class="btn" href="#work">Highlights</a>
+          </div>
+        </div>
+      </div>
 
-    <div class="section">
-      <h2>What I do</h2>
-      <p>
-        I build and scale lead generation systems, improve ROI and CAC, and work across creative, paid media, email, and sales ops.
-        More recently I’ve been building lightweight automation and web tools to make teams faster and reduce manual work.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>Highlights</h2>
-      <div class="grid">
-        <div class="card">
-          <strong>Growth + ROI</strong>
-          <p class="muted">Scaled budget, improved lead efficiency, and partnered tightly with sales to match lead flow to capacity.</p>
-        </div>
-        <div class="card">
-          <strong>Automation</strong>
-          <p class="muted">Python + integrations (Twilio, CRM, email, APIs) to reduce repetitive work and improve speed to execution.</p>
-        </div>
-        <div class="card">
-          <strong>Web</strong>
-          <p class="muted">Basic website development, landing pages, and practical tools that support marketing workflows.</p>
-        </div>
-        <div class="card">
-          <strong>Leadership</strong>
-          <p class="muted">Cross-functional coordination across marketing, sales, vendors, creative, and ops.</p>
-        </div>
+      <div class="pillbar" aria-label="quick facts">
+        <span class="pill"><span class="dot"></span>Marketing leadership</span>
+        <span class="pill"><span class="dot"></span>Paid + lifecycle</span>
+        <span class="pill"><span class="dot"></span>Sales alignment</span>
+        <span class="pill"><span class="dot"></span>Python automation</span>
+        <span class="pill"><span class="dot"></span>Twilio workflows</span>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:mpaich@gmail.com">mpaich@gmail.com</a><br/>
-        LinkedIn: <a href="https://www.linkedin.com/in/michael-b-paich-a70a8262/">/in/YOUR_LINKEDIN</a>
-      </p>
+    <div class="grid">
+      <div class="heroCard" id="work">
+        <h2 class="sectionTitle">Split focus</h2>
+        <p class="quiet" style="margin:0;color:var(--muted);line-height:1.6;">
+          Recruiters can land on one page and immediately see both sides of the story,
+          marketing outcomes on the left, technical execution on the right.
+        </p>
+
+        <div class="split">
+          <!-- Marketing column -->
+          <div class="card">
+            <div class="colHeader">
+              <h2>Marketing</h2>
+              <span class="badge">Growth, ROI, execution</span>
+            </div>
+
+            <div class="miniGrid">
+              <div class="card">
+                <h3>Lead gen and efficiency</h3>
+                <p>Scaled internal lead channels while keeping CAC profitable, with tight feedback loops between marketing and sales.</p>
+              </div>
+
+              <div class="card">
+                <h3>Paid and creative</h3>
+                <p>Owned creative development and channel performance, plus vendor management for external media buying.</p>
+              </div>
+
+              <div class="card">
+                <h3>Lifecycle</h3>
+                <p>Built email and retargeting systems that improved conversion and reduced waste, especially when capacity was constrained.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech column -->
+          <div class="card">
+            <div class="colHeader">
+              <h2>Automation and Web</h2>
+              <span class="badge">Python, integrations</span>
+            </div>
+
+            <div class="miniGrid">
+              <div class="card">
+                <h3>Workflow automation</h3>
+                <p>Python tools and API integrations to reduce manual work, normalize data, and improve visibility across systems.</p>
+              </div>
+
+              <div class="card">
+                <h3>Messaging and comms</h3>
+                <p>Twilio-based workflows for notifications and routing, plus practical integrations that support ops and customer response.</p>
+              </div>
+
+              <div class="card">
+                <h3>Web updates</h3>
+                <p>Website development and lightweight front-end work to ship updates fast, support campaigns, and keep things consistent.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="twoUp">
+          <div class="card">
+            <h3>Selected results</h3>
+            <p>
+              Add 3 to 5 bullets here with numbers. Budget scaled, lead volume, CAC improvement, conversion lift, time saved,
+              anything that feels undeniable when someone scans it in 10 seconds.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>What I’m looking for</h3>
+            <p>
+              Roles where I can own outcomes end to end, build reliable systems, and keep improving the machine over time,
+              not just run one channel and call it a day.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="heroCard" id="contact">
+        <h2 class="sectionTitle">Contact</h2>
+        <p class="contactLine" style="margin:0;color:var(--muted);line-height:1.8;">
+          Email: <a href="mpaich@gmail.com">mpaich@gmail.com</a><br />
+          LinkedIn: <a href="https://www.linkedin.com/in/michael-b-paich-a70a8262/"linkedin.com/in/michael-b-paich-a70a8262/</a><br />
+          GitHub: <a href="https://github.com/mp-marketing">github.com/mp-marketing</a>
+        </p>
+
+        <div class="footer">
+          <span>Last updated: <span id="updated"></span></span>
+          <span class="quiet">Built on GitHub Pages</span>
+        </div>
+      </div>
     </div>
   </div>
+
+  <script>
+    // small touch so the site feels "alive" without being gimmicky
+    const d = new Date();
+    const opts = { year: "numeric", month: "long", day: "numeric" };
+    document.getElementById("updated").textContent = d.toLocaleDateString(undefined, opts);
+  </script>
 </body>
 </html>
-
